@@ -17,14 +17,14 @@ var highScoreList = [
 
 var userName = readlineSync.question(chalk.whiteBright("What is your name? "));
 
-console.log(chalk.rgb(255, 136, 0)("Welcome " + userName + ", let's play Dialogue quiz."));
+console.log(chalk.rgb(255, 136, 0)(`Welcome  ${userName}, let's play Dialogue quiz.`));
 
 console.log(chalk.red("Rules"));
 console.log(chalk.red("There are 10 questions"));
 console.log(chalk.red("For right answer you get 1 points."));
 console.log(chalk.red("for each wrong answer you will get penalised by -1"));
 
-function dialogues(question,option,answer) {
+const dialogues = (question,option,answer) => {
   console.log(chalk.yellow(question));
   for(i=0;i<option.length;i++) {
     console.log(option[i]);
@@ -39,7 +39,7 @@ function dialogues(question,option,answer) {
     console.log(chalk.red("Wrong Answer!"));
     score = score - 1;
   }
-  console.log("Your current score is " + score + ".");
+  console.log(`Your current score is ${score}.`);
   console.log( chalk.cyan("____________________________________"));
 }
 
