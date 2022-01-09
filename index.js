@@ -1,8 +1,8 @@
-var readlineSync = require("readline-sync");
-var chalk = require("chalk");
+const readlineSync = require("readline-sync");
+const chalk = require("chalk");
 
-var score = 0;
-var highScoreList = [
+let score = 0;
+const highScoreList = [
   {
     name: "Rishi", 
     score: "9"
@@ -15,9 +15,9 @@ var highScoreList = [
 
 
 
-var userName = readlineSync.question(chalk.whiteBright("What is your name? "));
+const userName = readlineSync.question(chalk.whiteBright("What is your name? "));
 
-console.log(chalk.rgb(255, 136, 0)(`Welcome  ${userName}, let's play Dialogue quiz.`));
+console.log(chalk.rgb(255, 136, 0)(`Welcome ${userName}, let's play Dialogue quiz.`));
 
 console.log(chalk.red("Rules"));
 console.log(chalk.red("There are 10 questions"));
@@ -26,7 +26,7 @@ console.log(chalk.red("for each wrong answer you will get penalised by -1"));
 
 const dialogues = (question,option,answer) => {
   console.log(chalk.yellow(question));
-  for(i=0;i<option.length;i++) {
+  for(let i=0;i<option.length;i++) {
     console.log(option[i]);
   }
   var userAnswer = readlineSync.question("Your Answer:");
@@ -43,7 +43,7 @@ const dialogues = (question,option,answer) => {
   console.log( chalk.cyan("____________________________________"));
 }
 
-var questions = [{
+const questions = [{
   question: "'Yeh Babu Rao ka style hai' dialogue is form which movie?",                                            
   option: ["A. Bhagam Bhag","B. Hera Pheri","C. Welcome"],
   answer: "B"
@@ -96,13 +96,14 @@ var questions = [{
 
 
 
-for(var j=0; j<questions.length; j++) {
-  var currentQuestion = questions[j];
+for(let j=0; j<questions.length; j++) {
+  let currentQuestion = questions[j];
   
   dialogues(currentQuestion.question,currentQuestion.option,  currentQuestion.answer);
 }
+
 console.log("High Score: ")
-for(var i=0; i<highScoreList.length; i++) {
+for(let i=0; i<highScoreList.length; i++) {
   console.log(highScoreList[i].name);
   console.log(highScoreList[i].score);  
 };
